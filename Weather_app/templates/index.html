@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .weather-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .weather-icon {
+            width: 80px;
+        }
+
+        .temp {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .city-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="weather-card text-center">
+
+    <h2 class="mb-4">🌤️ Weather App</h2>
+
+    <form method="POST" class="mb-4">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="city" class="form-control" placeholder="Enter city name" required>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+
+    {% if city %}
+        <div>
+            <p class="city-name">{{ city }}</p>
+
+            <img src="{{ icon }}" alt="Weather Icon" class="weather-icon">
+
+            <p class="temp">{{ temp }}°C</p>
+
+            <p class="text-muted">{{ condition }}</p>
+
+            <hr>
+
+            <div class="row">
+                <div class="col">
+                    <p class="mb-0">💧 Humidity</p>
+                    <strong>{{ humidity }}%</strong>
+                </div>
+                <div class="col">
+                    <p class="mb-0">🌬 Wind</p>
+                    <strong>{{ wind }} km/h</strong>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
