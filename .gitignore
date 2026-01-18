@@ -1,0 +1,43 @@
+# 🔐 Environment variables
+.env
+
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 🧪 Virtual environment
+venv/
+env/
+.venv/
+
+# 🗄️ Django
+db.sqlite3
+*.log
+local_settings.py
+
+# 📦 Django static & media
+/staticfiles/
+/media/
+
+# 🧰 Migrations cache
+*/migrations/__pycache__/
+
+# 🧠 IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 🖥️ OS files
+.DS_Store
+Thumbs.db
+
+# 🧪 Test & coverage
+.coverage
+htmlcov/
+
+# 📦 Build / packaging
+dist/
+build/
+*.egg-info/
